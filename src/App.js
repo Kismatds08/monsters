@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchBox } from './components/search-box/search-box.component';
+import { SearchBox } from './components/search-box/search-box.component'
 
 class App extends React.Component{
   constructor(){
