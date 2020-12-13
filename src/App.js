@@ -12,19 +12,26 @@ class App extends React.Component{
       searchField: '',
       }
     }
-
-    componentDidCatch(){
+    
+    componentDidMount(){
       fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({monsters: users}))
     }
-
+  //onSearchChange  
   render(){
+    //object destructuring
+    //const {monsters, searchField} =this.state
+    //const filteredMonsters = monsters.filter(
+    //monster => monster.name.includes(searchField)
+
+    //)
     return(
       <div className='App'>
         <h1>Monster's Rollodex</h1>
-       <SearchBox/>
+       <SearchBox onSearchChange = {this.onSearchChange}/>
        <CardList monsters ={this.state.monsters}/>
+
       </div>
     )
   }

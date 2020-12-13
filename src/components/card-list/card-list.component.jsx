@@ -3,7 +3,7 @@ import { Card } from '../card/card.component'
 import './card-list.style.css'
 
 export const CardList = (props) => (
-    < div className='card-list'>
+    <div className='card-list'>
         {
             //monster is coming from the props just created 
             props.monsters.map(
