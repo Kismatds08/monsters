@@ -18,20 +18,23 @@ class App extends React.Component{
       .then(response => response.json())
       .then(users => this.setState({monsters: users}))
     }
-  //onSearchChange  
+
+  onSearchChange = event => {
+    this.setState({searchField: event.target.value})
+  }  
   render(){
     //object destructuring
-    //const {monsters, searchField} =this.state
-    //const filteredMonsters = monsters.filter(
-    //monster => monster.name.includes(searchField)
+    const {monsters, searchField} =this.state
+    console.log(searchField)
 
-    //)
+    const filteredMonsters = monsters.filter(
+    monster => monster.name.toLowerCase().includes(searchField)
+   )
     return(
       <div className='App'>
         <h1>Monster's Rollodex</h1>
        <SearchBox onSearchChange = {this.onSearchChange}/>
-       <CardList monsters ={this.state.monsters}/>
-
+       <CardList monsters ={filteredMonsters}/>
       </div>
     )
   }
